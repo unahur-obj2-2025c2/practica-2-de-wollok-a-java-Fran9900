@@ -1,0 +1,49 @@
+Ciudad Futurista
+    Zona
+        -tamaño
+        -cantidad de operaciones
+        -ListaOperacionesRealizadas
+        *operarEscuadron(Comprobaciones correspondientes (?) y si si:
+            la zona resgistra que recibió una operacion,
+            Cada dron dele scuadron -2 autonomia)
+    Escuadron
+        -Lista de Drones
+        -cantidad maxima de drones (init 10)
+        -Operativo (bool)
+
+        *AgregarDron(Comprobaciones correspondientes (?) y sino “Supera la cantidad máxima definida por la ciudad”)
+        *Al menos 1 dron avanzado y 
+
+Dron
+    -autonomia
+    -procesamiento
+    -mision
+    *eficienciaOperativa((autonomia * 10)+extra depende de su mision)
+    *esAvanzado(avanzadoPorMision || avanzadoPorTipo)
+
+    Comercial
+    *eficienciaOperativa(+15)
+    *avanzadoPorTipo(nunca)
+
+    Seguridad
+    *avanzadoPorTipo(procesamiento > 50)
+
+
+Mision
+    Transporte
+    *extra=100
+    *avanzadoPorMision(autonomia > 50)
+
+    Exploración
+    *extra=0
+    *avanzadoPorMision(eficienciaOperativa()=numero par)
+
+    Vigilancia
+    *extra=(mejoras=true, capasidad | mejoras=false, capasidad*2)
+    *avanzadoPorMision(duradero = true)
+        Sensor
+            -capacidad
+            -durabilidad
+            -mejoras(bool)
+            *duradero(durabilidad > capasidad*2)
+            *eficiencia(mejorar = false, capasidad | meorar = true, capasidad*2)
